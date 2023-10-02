@@ -3959,7 +3959,7 @@ spec:
   - name: http
     port: 80
     targetPort: http
-    nodePort: 8081
+    nodePort: null
 ---
 # Source: longhorn/templates/services.yaml
 apiVersion: v1
