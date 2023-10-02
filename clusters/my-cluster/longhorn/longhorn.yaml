@@ -4,7 +4,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: longhorn-service-account
-  namespace: longhorn-system2
+  namespace: longhorn-system
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -15,7 +15,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: longhorn-support-bundle
-  namespace: longhorn-system2
+  namespace: longhorn-system
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -26,7 +26,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: longhorn-default-setting
-  namespace: longhorn-system2
+  namespace: longhorn-system
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -39,7 +39,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: longhorn-storageclass
-  namespace: longhorn-system2
+  namespace: longhorn-system
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -430,7 +430,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system2
+          namespace: longhorn-system
           path: /v1/webhook/conversion
           port: 9501
       conversionReviewVersions:
@@ -785,7 +785,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system2
+          namespace: longhorn-system
           path: /v1/webhook/conversion
           port: 9501
       conversionReviewVersions:
@@ -1136,7 +1136,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system2
+          namespace: longhorn-system
           path: /v1/webhook/conversion
           port: 9501
       conversionReviewVersions:
@@ -1924,7 +1924,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system2
+          namespace: longhorn-system
           path: /v1/webhook/conversion
           port: 9501
       conversionReviewVersions:
@@ -3345,7 +3345,7 @@ spec:
       clientConfig:
         service:
           name: longhorn-conversion-webhook
-          namespace: longhorn-system2
+          namespace: longhorn-system
           path: /v1/webhook/conversion
           port: 9501
       conversionReviewVersions:
@@ -3899,7 +3899,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: longhorn-service-account
-  namespace: longhorn-system2
+  namespace: longhorn-system
 ---
 # Source: longhorn/templates/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -3917,7 +3917,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: longhorn-support-bundle
-  namespace: longhorn-system2
+  namespace: longhorn-system
 ---
 # Source: longhorn/templates/daemonset-sa.yaml
 apiVersion: v1
@@ -3929,7 +3929,7 @@ metadata:
     app.kubernetes.io/version: v1.5.1
     app: longhorn-manager
   name: longhorn-backend
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   type: ClusterIP
   sessionAffinity: ClientIP
@@ -3950,7 +3950,7 @@ metadata:
     app.kubernetes.io/version: v1.5.1
     app: longhorn-ui
   name: longhorn-frontend
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   type: LoadBalancer
   selector:
@@ -3971,7 +3971,7 @@ metadata:
     app.kubernetes.io/version: v1.5.1
     app: longhorn-conversion-webhook
   name: longhorn-conversion-webhook
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   type: ClusterIP
   sessionAffinity: ClientIP
@@ -3992,7 +3992,7 @@ metadata:
     app.kubernetes.io/version: v1.5.1
     app: longhorn-admission-webhook
   name: longhorn-admission-webhook
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   type: ClusterIP
   sessionAffinity: ClientIP
@@ -4013,7 +4013,7 @@ metadata:
     app.kubernetes.io/version: v1.5.1
     app: longhorn-recovery-backend
   name: longhorn-recovery-backend
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   type: ClusterIP
   sessionAffinity: ClientIP
@@ -4033,7 +4033,7 @@ metadata:
     app.kubernetes.io/instance: longhorn
     app.kubernetes.io/version: v1.5.1
   name: longhorn-engine-manager
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   clusterIP: None
   selector:
@@ -4049,7 +4049,7 @@ metadata:
     app.kubernetes.io/instance: longhorn
     app.kubernetes.io/version: v1.5.1
   name: longhorn-replica-manager
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   clusterIP: None
   selector:
@@ -4066,7 +4066,7 @@ metadata:
     app.kubernetes.io/version: v1.5.1
     app: longhorn-manager
   name: longhorn-manager
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   selector:
     matchLabels:
@@ -4164,7 +4164,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: longhorn-driver-deployer
-  namespace: longhorn-system2
+  namespace: longhorn-system
   labels:
     app.kubernetes.io/name: longhorn
     app.kubernetes.io/instance: longhorn
@@ -4237,7 +4237,7 @@ metadata:
     app.kubernetes.io/version: v1.5.1
     app: longhorn-ui
   name: longhorn-ui
-  namespace: longhorn-system2
+  namespace: longhorn-system
 spec:
   replicas: 2
   selector:
