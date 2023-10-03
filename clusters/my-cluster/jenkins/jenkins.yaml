@@ -1,16 +1,16 @@
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: longhorn-jenks-pvc
-  namespace: jenkins
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: longhorn
-  resources:
-    requests:
-      storage: 1Gi
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: longhorn-jenks-pvc
+#   namespace: jenkins
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: longhorn
+#   resources:
+#     requests:
+#       storage: 1Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,6 +39,5 @@ spec:
           - name: jenkins-vol
             mountPath: /var/jenkins_vol
       volumes:
-      - name: volv
-        persistentVolumeClaim:
-          claimName: longhorn-jenks-pvc
+        - name: jenkins-vol
+          emptyDir: {}
