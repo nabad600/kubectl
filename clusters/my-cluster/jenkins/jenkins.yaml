@@ -3,7 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: longhorn-jenks-pvc
-  namespace: apps
+  namespace: jenkins
 spec:
   accessModes:
     - ReadWriteOnce
@@ -16,6 +16,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins
+  namespace: jenkins
 spec:
   replicas: 2
   selector:
